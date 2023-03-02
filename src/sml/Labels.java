@@ -61,7 +61,7 @@ public final class Labels {
 	public String toString() {
 		// TODO: Implement the method using the Stream API (see also class Registers).
 		return label.enterySet().stream().map(
-			e => e.getKey() + "" + e.getValue()
+			e -> e.getKey() + "" + e.getValue()
 		).collect(
 			collectors.joining(", ", "[", "]")
 		)
