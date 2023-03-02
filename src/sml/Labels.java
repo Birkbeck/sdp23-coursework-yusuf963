@@ -60,10 +60,26 @@ public final class Labels {
 	@Override
 	public String toString() {
 		// TODO: Implement the method using the Stream API (see also class Registers).
-		return "";
+		return label.enterySet().stream().map(
+			e => e.getKey() + "" + e.getValue()
+		).collect(
+			collectors.joining(", ", "[", "]")
+		)
 	}
 
 	// TODO: Implement equals and hashCode (needed in class Machine).
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Labels labels1 = (Labels) obj;
+		return Objects.equals(labels, labels1.labels);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(labels);
+	}
 
 	/**
 	 * Removes the labels
