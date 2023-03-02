@@ -6,7 +6,10 @@ import java.util.stream.Collectors;
 // TODO: write a JavaDoc for the class
 
 /**
- *
+ * The Registers class is a final class that represents a collection of registers,
+ * Represents a collection with names as enum values.
+ * Provides methods to clear all registers, set a register value, and get a register value.
+ * Overrides equals, hashCode, and toString methods,and its registers are stored in a HashMap.
  * @author ...
  */
 public final class Registers {
@@ -49,9 +52,8 @@ public final class Registers {
     // https://docs.oracle.com/en/java/javase/14/language/pattern-matching-instanceof-operator.html
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Registers) {
-            Registers other = (Registers) o;
-            return registers.equals(other.registers);
+        if (o instanceof Registers r) {
+            return registers.equals(r.registers);
         }
         return false;
     }
