@@ -22,7 +22,11 @@ public final class Labels {
 	public void addLabel(String label, int address) {
 		Objects.requireNonNull(label);
 		// TODO: Add a check that there are no label duplicates.
-		labels.put(label, address);
+		if(label.containsKey(label)){
+			throw new RuntimeException("the lable can not be added, as its already exist!")
+		}else{
+			labels.put(label, address);
+		}
 	}
 
 	/**
@@ -35,7 +39,16 @@ public final class Labels {
 		// TODO: Where can NullPointerException be thrown here?
 		//       (Write an explanation.)
 		//       Add code to deal with non-existent labels.
-		return labels.get(label);
+	/**
+	 * we store an address incorrectly against a label, it can result in an error. More specifically,
+	 * this issue arises when we store an address for an index that exceeds the size of the program ArrayList of Instructions in the Machine class.
+	 *  If we attempt to jump to the index of this label and it is outside the size of program, the program will throw a NullPointerException.
+	*/
+		if(!labels.containsKey(lable)){
+			throw new RuntimeException("Lable of value "+ label+ "doesn't exist")
+		}else{
+			return labels.get(label);
+		}
 	}
 
 	/**
