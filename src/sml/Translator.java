@@ -23,7 +23,12 @@ public final class Translator {
 
     // line contains the characters in the current line that's not been processed yet
     private String line = "";
+    private final InstructionFactory instructionFactory;
 
+    public Translator(String fileName, InstructionFactory instructionFactory) {
+        this.fileName = fileName;
+        this.instructionFactory = instructionFactory;
+    }
     public Translator(String fileName) {
         this.fileName =  fileName;
     }
