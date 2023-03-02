@@ -61,11 +61,11 @@ public abstract class Instruction {
   public abstract String toString();
 
   @Override
-  public boolean equal(Object obj) {
+  public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || getClass() != obj.getClass()) return false;
     Instruction that = (Instruction) obj;
-    return Objects.equal(label, that.label) && opcode.equal(that.opcode);
+    return Objects.equals(label, that.label) && opcode.equals(that.opcode);
   }
 
   @Override
