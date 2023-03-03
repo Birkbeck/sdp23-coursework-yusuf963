@@ -9,10 +9,9 @@ import java.util.Objects;
 
 public class MovInstruction extends Instruction {
 
+    public static final String OP_CODE = "mov";
     private final RegisterName registerToSet;
     private final int value;
-
-    public static final String OP_CODE = "mov";
 
     public MovInstruction(String label, RegisterName registerToSet, int value) {
         super(label, OP_CODE);

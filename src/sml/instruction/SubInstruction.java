@@ -5,10 +5,9 @@ import sml.*;
 import java.util.Objects;
 
 public class SubInstruction extends Instruction implements FlowHandling {
+    public static final String OP_CODE = "sub";
     private final RegisterName result;
     private final RegisterName source;
-
-    public static final String OP_CODE = "sub";
 
     public SubInstruction(String label, RegisterName result, RegisterName source) {
         super(label, OP_CODE);

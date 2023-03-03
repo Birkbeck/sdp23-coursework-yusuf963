@@ -1,6 +1,7 @@
 package sml;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 // TODO: write a JavaDoc for the class
@@ -10,14 +11,11 @@ import java.util.stream.Collectors;
  * Represents a collection with names as enum values.
  * Provides methods to clear all registers, set a register value, and get a register value.
  * Overrides equals, hashCode, and toString methods,and its registers are stored in a HashMap.
+ *
  * @author ...
  */
 public final class Registers {
     private final Map<Register, Integer> registers = new HashMap<>();
-
-    public enum Register implements RegisterName {
-        EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI;
-    }
 
     public Registers() {
         clear(); // the class is final
@@ -32,10 +30,10 @@ public final class Registers {
      * Sets the given register to the value.
      *
      * @param register register name
-     * @param value new value
+     * @param value    new value
      */
     public void set(RegisterName register, int value) {
-        registers.put((Register)register, value);
+        registers.put((Register) register, value);
     }
 
     /**
@@ -45,7 +43,7 @@ public final class Registers {
      * @return value
      */
     public int get(RegisterName register) {
-        return registers.get((Register)register);
+        return registers.get((Register) register);
     }
 
     // TODO: use pattern matching for instanceof
@@ -68,6 +66,10 @@ public final class Registers {
         return registers.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .map(e -> e.getKey() + " = " + e.getValue())
-                .collect(Collectors.joining(", ", "[", "]")) ;
+                .collect(Collectors.joining(", ", "[", "]"));
+    }
+
+    public enum Register implements RegisterName {
+        EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI
     }
 }

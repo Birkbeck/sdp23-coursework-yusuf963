@@ -7,10 +7,12 @@ import sml.RegisterName;
 import java.util.Objects;
 
 // TODO: write a JavaDoc for the class
+
 /**
- This class represents an Add instruction that extends the Instruction class.
- It adds two values from two different registers and stores the result in a specified register.
- It overrides the execute, toString, equals, and hashCode methods from the Instruction class.
+ * This class represents an Add instruction that extends the Instruction class.
+ * It adds two values from two different registers and stores the result in a specified register.
+ * It overrides the execute, toString, equals, and hashCode methods from the Instruction class.
+ *
  * @author yusuf963
  */
 

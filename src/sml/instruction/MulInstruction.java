@@ -5,10 +5,9 @@ import sml.*;
 import java.util.Objects;
 
 public class MulInstruction extends Instruction implements FlowHandling {
+    public static final String OP_CODE = "mul";
     private final RegisterName result;
     private final RegisterName source;
-
-    public static final String OP_CODE = "mul";
 
     public MulInstruction(String label, RegisterName result, RegisterName source) {
         super(label, OP_CODE);
@@ -21,7 +20,7 @@ public class MulInstruction extends Instruction implements FlowHandling {
         int value1 = m.getRegisters().get(result);
         int value2 = m.getRegisters().get(source);
         int res = value1 * value2;
-        FlowHelper helper = (a, b, c) -> (int)(a * b) != ((long)a * (long)b);
+        FlowHelper helper = (a, b, c) -> (a * b) != ((long) a * (long) b);
         handleOverUnderFlow(value1, value2, res, result.toString(), source.toString(), opcode, helper);
         m.getRegisters().set(result, res);
         return NORMAL_PROGRAM_COUNTER_UPDATE;

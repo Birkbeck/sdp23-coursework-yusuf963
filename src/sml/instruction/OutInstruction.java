@@ -9,9 +9,8 @@ import java.util.Objects;
 
 public class OutInstruction extends Instruction {
 
-    private final RegisterName source;
-
     public static final String OP_CODE = "out";
+    private final RegisterName source;
 
     public OutInstruction(String label, RegisterName source) {
         super(label, OP_CODE);

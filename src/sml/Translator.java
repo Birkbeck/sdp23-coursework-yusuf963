@@ -1,17 +1,16 @@
 package sml;
 
-import sml.instruction.*;
+import sml.instruction.AddInstruction;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 import static sml.Registers.Register;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
 
 /**
  * This class ....
@@ -23,10 +22,9 @@ import java.util.*;
 public final class Translator {
 
     private final String fileName; // source file of SML code
-
+    private final InstructionFactory instructionFactory;
     // line contains the characters in the current line that's not been processed yet
     private String line = "";
-    private final InstructionFactory instructionFactory;
 
     public Translator(String fileName, InstructionFactory instructionFactory) {
         this.fileName = fileName;
@@ -71,12 +69,10 @@ public final class Translator {
             return null;
 
         String opcode = scan();
-        switch (opcode) {
-            case AddInstruction.OP_CODE -> {
-                String r = scan();
-                String s = scan();
-                return new AddInstruction(label, Register.valueOf(r), Register.valueOf(s));
-            }
+        if (opcode.equals(AddInstruction.OP_CODE)) {
+            String r = scan();
+            String s = scan();
+            return new AddInstruction(label, Register.valueOf(r), Register.valueOf(s));
 
             // TODO: add code for all other types of instructions
 
@@ -84,10 +80,8 @@ public final class Translator {
 
             // TODO: Next, use dependency injection to allow this machine class
             //       to work with different sets of opcodes (different CPUs)
-
-            default -> {
-                System.out.println("Unknown instruction: " + opcode);
-            }
+        } else {
+            System.out.println("Unknown instruction: " + opcode);
         }
         return null;
     }
