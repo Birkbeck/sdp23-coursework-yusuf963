@@ -10,7 +10,8 @@ import java.util.Objects;
  * in the first register. It inherits from the Instruction class and implements
  * the FlowHandling interface. The class has a constructor, an execute method,
  * a toString method, an equals method, and a hashCode method.
- * @author  yusuf963
+ *
+ * @author yusuf963
  */
 
 public class SubInstruction extends Instruction implements FlowHandling {
@@ -45,10 +46,11 @@ public class SubInstruction extends Instruction implements FlowHandling {
     }
 
     /**
-     Checks if this SubInstruction object is equal to another object.
-     Two SubInstruction objects are considered equal if they have the same label, opcode, result and source registers.
-     @param o the object to compare this SubInstruction object against
-     @return true if the given object is equal to this SubInstruction object, false otherwise
+     * Checks if this SubInstruction object is equal to another object.
+     * Two SubInstruction objects are considered equal if they have the same label, opcode, result and source registers.
+     *
+     * @param o the object to compare this SubInstruction object against
+     * @return true if the given object is equal to this SubInstruction object, false otherwise
      */
     @Override
     public boolean equals(Object o) {

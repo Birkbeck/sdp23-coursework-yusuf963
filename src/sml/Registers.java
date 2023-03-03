@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-// TODO: write a JavaDoc for the class
-
 /**
  * The Registers class is a final class that represents a collection of registers,
  * Represents a collection with names as enum values.
@@ -46,8 +44,6 @@ public final class Registers {
         return registers.get((Register) register);
     }
 
-    // TODO: use pattern matching for instanceof
-    // https://docs.oracle.com/en/java/javase/14/language/pattern-matching-instanceof-operator.html
     @Override
     public boolean equals(Object o) {
         if (o instanceof Registers r) {

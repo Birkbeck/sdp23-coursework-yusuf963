@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-// TODO: write a JavaDoc for the class
 /**
  * a class for storing labels and their associated addresses as key-value pairs.
  * labels can be added to the map with their associated addresses.
@@ -15,7 +14,6 @@ import java.util.stream.Collectors;
  */
 
 /**
- *
  * @author yusuf963
  */
 public final class Labels {
@@ -24,12 +22,12 @@ public final class Labels {
     /**
      * Adds a label with the associated address to the map.
      * throw run time exception if label is already exists, otherwise it accepts the label
-     * @param label the label
+     *
+     * @param label   the label
      * @param address the address the label refers to
      */
     public void addLabel(String label, int address) {
         Objects.requireNonNull(label);
-        // TODO: Add a check that there are no label duplicates.
         if (label.contains(label)) {
             throw new RuntimeException("the label can not be added, as its already exist!");
         } else {
@@ -44,9 +42,6 @@ public final class Labels {
      * @return the address the label refers to
      */
     public int getAddress(String label) {
-        // TODO: Where can NullPointerException be thrown here?
-        //       (Write an explanation.)
-        //       Add code to deal with non-existent labels.
         /**
          * we store an address incorrectly against a label, it can result in an error. More specifically,
          * this issue arises when we store an address for an index that exceeds the size of the program ArrayList of Instructions in the Machine class.
@@ -67,14 +62,12 @@ public final class Labels {
      */
     @Override
     public String toString() {
-        // TODO: Implement the method using the Stream API (see also class Registers).
         return labels.entrySet()
                 .stream()
                 .map(e -> e.getKey() + " -> " + e.getValue())
                 .collect(Collectors.joining(", ", "[", "]"));
     }
 
-    // TODO: Implement equals and hashCode (needed in class Machine).
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -85,6 +78,7 @@ public final class Labels {
 
     /**
      * The hash code is generated using the labels map.
+     *
      * @return the hash label for the object
      */
     @Override

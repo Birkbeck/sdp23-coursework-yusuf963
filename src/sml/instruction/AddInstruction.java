@@ -6,7 +6,6 @@ import sml.RegisterName;
 
 import java.util.Objects;
 
-// TODO: write a JavaDoc for the class
 
 /**
  * This class represents an Add instruction that extends the Instruction class.

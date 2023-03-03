@@ -2,12 +2,12 @@ package sml;
 
 import java.util.Objects;
 
-// TODO: write a JavaDoc for the class
 /**
  * Represents an abstract instruction. An abstract class that cannot be instantiated. you cannot create objects
  * of an abstract class.
  * It serves as a base or template for other classes that inherit from
  * it and can define abstract methods.
+ *
  * @author yusuf963
  */
 
@@ -21,7 +21,7 @@ public abstract class Instruction {
      * Constructor: an instruction with a label and an opcode
      * (opcode must be an operation of the language)
      *
-     * @param label optional label (can be null)
+     * @param label  optional label (can be null)
      * @param opcode operation name
      */
     public Instruction(String label, String opcode) {
@@ -42,8 +42,8 @@ public abstract class Instruction {
      *
      * @param machine the machine the instruction runs on
      * @return the new program counter (for jump instructions)
-     *          or NORMAL_PROGRAM_COUNTER_UPDATE to indicate that
-     *          the instruction with the next address is to be executed
+     * or NORMAL_PROGRAM_COUNTER_UPDATE to indicate that
+     * the instruction with the next address is to be executed
      */
 
     public abstract int execute(Machine machine);
@@ -52,8 +52,6 @@ public abstract class Instruction {
         return (getLabel() == null) ? "" : getLabel() + ": ";
     }
 
-    // TODO: What does abstract in the declaration below mean?
-    //     (Write a short explanation.)
     /* abstract method is defined only by its method signature and does not contain any implementation.
      *  Consequently, any class that implements an abstract class
      *  that contains this method is required to provide an implementation for it.
@@ -65,6 +63,7 @@ public abstract class Instruction {
      * This method overrides the default implementation of equals() for the Instruction class.
      * It checks if the given object is of the same class and has the same label and opcode
      * as this Instruction object. It returns true if they are equal, false otherwise.
+     *
      * @param o
      */
     @Override
@@ -76,8 +75,9 @@ public abstract class Instruction {
     }
 
     /**
-     Returns the hash code of this instruction, based on its label and opcode.
-     @return the hash code of this instruction.
+     * Returns the hash code of this instruction, based on its label and opcode.
+     *
+     * @return the hash code of this instruction.
      */
     @Override
     public int hashCode() {

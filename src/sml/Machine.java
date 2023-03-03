@@ -69,20 +69,17 @@ public final class Machine {
                 .collect(Collectors.joining("\n"));
     }
 
-    // TODO: use pattern matching for instanceof
-    // https://docs.oracle.com/en/java/javase/14/language/pattern-matching-instanceof-operator.html
-
     /**
-     Checks if this Machine object is equal to the specified Object.
-     Two Machine objects are considered equal if they have the same labels, program,
-     registers, and programCounter values.
-     @param o the object to compare
-     @return true if the specified object is equal to this Machine object, false otherwise
+     * Checks if this Machine object is equal to the specified Object.
+     * Two Machine objects are considered equal if they have the same labels, program,
+     * registers, and programCounter values.
+     *
+     * @param o the object to compare
+     * @return true if the specified object is equal to this Machine object, false otherwise
      */
     @Override
     public boolean equals(Object o) {
         if (o instanceof Machine m) {
-            // TODO:
             return Objects.equals(this.labels, m.labels)
                     && Objects.equals(this.program, m.program)
                     && Objects.equals(this.registers, m.registers)
@@ -90,6 +87,7 @@ public final class Machine {
         }
         return false;
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(labels, program, registers, programCounter);

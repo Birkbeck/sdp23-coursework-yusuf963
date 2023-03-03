@@ -5,7 +5,7 @@ public interface FlowHandling {
         if (helper.makeOps(firstValue, secondValue, response)) {
             if (response < 0) {
                 throw new ArithmeticException("this can not be completed");
+            }
         }
     }
-}
 }
