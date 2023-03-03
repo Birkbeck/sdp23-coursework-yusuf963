@@ -23,7 +23,7 @@ public final class Labels {
 		Objects.requireNonNull(label);
 		// TODO: Add a check that there are no label duplicates.
 		if(label.containsKey(label)){
-			throw new RuntimeException("the lable can not be added, as its already exist!")
+			throw new RuntimeException("the lable can not be added, as its already exist!");
 		}else{
 			labels.put(label, address);
 		}
@@ -45,7 +45,7 @@ public final class Labels {
 	 *  If we attempt to jump to the index of this label and it is outside the size of program, the program will throw a NullPointerException.
 	*/
 		if(!labels.containsKey(lable)){
-			throw new RuntimeException("Lable of value "+ label+ "doesn't exist")
+			throw new RuntimeException("Lable of value "+ label+ "doesn't exist");
 		}else{
 			return labels.get(label);
 		}
@@ -64,7 +64,7 @@ public final class Labels {
 			e -> e.getKey() + "" + e.getValue()
 		).collect(
 			collectors.joining(", ", "[", "]")
-		)
+		);
 	}
 
 	// TODO: Implement equals and hashCode (needed in class Machine).
