@@ -21,7 +21,7 @@ public class MulInstruction extends Instruction implements FlowHandling {
         int value1 = m.getRegisters().get(result);
         int value2 = m.getRegisters().get(source);
         int res = value1 * value2;
-        UnderOverFlowHelper helper = (a, b, c) -> (int)(a * b) != ((long)a * (long)b);
+        FlowHelper helper = (a, b, c) -> (int)(a * b) != ((long)a * (long)b);
         handleOverUnderFlow(value1, value2, res, result.toString(), source.toString(), opcode, helper);
         m.getRegisters().set(result, res);
         return NORMAL_PROGRAM_COUNTER_UPDATE;

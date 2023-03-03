@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import static sml.Registers.Register;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 /**
  * This class ....
@@ -107,14 +110,11 @@ public final class Translator {
     private String scan() {
         line = line.trim();
         ArrayList<String> splitLine = new ArrayList<>(Arrays.asList(line.split(" ")));
-
-        for (int i = 0; i < line.length(); i++)
-            if (Character.isWhitespace(line.charAt(i))) {
-                String word = line.substring(0, i);
-                line = line.substring(i);
-                return word;
-            }
-
+        if (splitLine.size() > 0) {
+            String word = splitLine.remove(0);
+            line = String.join(" ", splitLine);
+            return word;
+        }
         return line;
     }
 }

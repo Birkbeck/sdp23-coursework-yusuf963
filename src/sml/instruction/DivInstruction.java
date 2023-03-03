@@ -54,10 +54,8 @@ public class DivInstruction extends Instruction {
     @Override
     public int hashCode() {
         if (label != null) {
-            return Object.hash(label, opcode, result, source);
-        } else {
-            return Object.hash(opcode, result, source);
-        }
+            return Objects.hash(label, opcode, result, source);
+        } else return Objects.hash(opcode, result, source);
     }
 
 }

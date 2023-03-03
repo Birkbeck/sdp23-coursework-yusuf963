@@ -14,10 +14,10 @@ import java.util.Arrays;
 import static sml.Registers.Register;
 
 public class InstructionFactory {
+
     private static InstructionFactory instance = null;
 
     private InstructionFactory() {
-
     }
 
     public static InstructionFactory getInstance() {
@@ -49,7 +49,7 @@ public class InstructionFactory {
                 case "out" -> new OutInstruction(label, Register.valueOf(args.get(0)));
                 case "mov" -> new MovInstruction(label, Register.valueOf(args.get(0)), Integer.parseInt(args.get(1)));
                 case "jnz" -> new JnzInstruction(label, Register.valueOf(args.get(0)), args.get(1));
-                default -> throw new IllegalArgumentException("Command not found " + opcode);
+                default -> throw new IllegalArgumentException("Unknown instruction '" + opcode + "'");
             };
         } catch (IllegalArgumentException e) {
             String eString = e.toString();

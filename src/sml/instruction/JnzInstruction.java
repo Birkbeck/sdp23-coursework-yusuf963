@@ -13,7 +13,7 @@ public class JnzInstruction extends Instruction {
     public JnzInstruction(String label, RegisterName registerName, String goToLabel) {
         super(label, OP_CODE);
         this.registerName = registerName;
-        this.goToLabel = goToLable;
+        this.goToLabel = goToLabel;
     }
 
     @Override
