@@ -5,9 +5,11 @@ import sml.Machine;
 import sml.RegisterName;
 
 // TODO: write a JavaDoc for the class
-
 /**
- * @author
+ This class represents an Add instruction that extends the Instruction class.
+ It adds two values from two different registers and stores the result in a specified register.
+ It overrides the execute, toString, equals, and hashCode methods from the Instruction class.
+ * @author yusuf963
  */
 
 public class AddInstruction extends Instruction {

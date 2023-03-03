@@ -3,7 +3,12 @@ package sml.instruction;
 import sml.Instruction;
 import sml.Machine;
 import sml.RegisterName;
+import java.util.Objects;
 
+/**
+ * a public class which is extended from Instruction class responsible for divides the passed values.
+ * @author yusuf963
+ */
 public class DivInstruction extends Instruction {
     private final RegisterName result;
     private final RegisterName source;
@@ -43,6 +48,9 @@ public class DivInstruction extends Instruction {
         }
     }
 
+    /**
+     * @return hashed value for {@code DivInstruction} object
+     */
     @Override
     public int hashCode() {
         if (label != null) {
