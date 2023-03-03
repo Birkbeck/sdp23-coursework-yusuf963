@@ -109,6 +109,7 @@ public final class Translator {
      */
     private String scan() {
         line = line.trim();
+        ArrayList<String> splitLine = new ArrayList<>(Arrays.asList(line.split(" ")));
 
         for (int i = 0; i < line.length(); i++)
             if (Character.isWhitespace(line.charAt(i))) {

@@ -3,6 +3,10 @@ package sml;
 import java.util.Objects;
 
 // TODO: write a JavaDoc for the class
+/**
+ * An abstract class that cannot be instantiated. you cannot create objects of an abstract class.
+ * It serves as a base or template for other classes that inherit from it and can define abstract methods.
+*/
 
 /**
  * Represents an abstract instruction.
