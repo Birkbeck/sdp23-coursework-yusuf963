@@ -4,15 +4,13 @@ import java.util.Objects;
 
 // TODO: write a JavaDoc for the class
 /**
- * An abstract class that cannot be instantiated. you cannot create objects of an abstract class.
- * It serves as a base or template for other classes that inherit from it and can define abstract methods.
+ * Represents an abstract instruction. An abstract class that cannot be instantiated. you cannot create objects
+ * of an abstract class.
+ * It serves as a base or template for other classes that inherit from
+ * it and can define abstract methods.
+ * @author yusuf963
  */
 
-/**
- * Represents an abstract instruction.
- *
- * @author ...
- */
 public abstract class Instruction {
 
     public static int NORMAL_PROGRAM_COUNTER_UPDATE = -1;
@@ -63,6 +61,12 @@ public abstract class Instruction {
     @Override
     public abstract String toString();
 
+    /**
+     * This method overrides the default implementation of equals() for the Instruction class.
+     * It checks if the given object is of the same class and has the same label and opcode
+     * as this Instruction object. It returns true if they are equal, false otherwise.
+     * @param o
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -71,6 +75,10 @@ public abstract class Instruction {
         return Objects.equals(label, that.label) && opcode.equals(that.opcode);
     }
 
+    /**
+     Returns the hash code of this instruction, based on its label and opcode.
+     @return the hash code of this instruction.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(label, opcode);

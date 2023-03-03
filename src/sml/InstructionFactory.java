@@ -7,12 +7,16 @@ import java.util.Arrays;
 
 import static sml.Registers.Register;
 
+/**
+ A factory for creating SML instructions based on the opcode and arguments provided.
+ The factory ensures that the correct number and type of arguments are
+ provided foreach instruction and throws a RuntimeException if
+ an invalid opcode or argument is passed.
+ @author yusuf963
+ */
 public class InstructionFactory {
 
     private static InstructionFactory instance = null;
-
-    private InstructionFactory() {
-    }
 
     public static InstructionFactory getInstance() {
         if (instance == null) {
@@ -21,6 +25,14 @@ public class InstructionFactory {
         return instance;
     }
 
+    /**
+     * Method to creates an Instruction object based on the given label, opcode,
+     * and arguments. It checks the validity of the opcode and arguments and
+     * throws exceptions if they are not valid. It returns the created Instruction object.
+     * @param label
+     * @param opcode
+     * @param args
+     */
     public Instruction create(String label, String opcode, ArrayList<String> args) {
         try {
             if (opcode.equals("out")) {

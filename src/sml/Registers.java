@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * Provides methods to clear all registers, set a register value, and get a register value.
  * Overrides equals, hashCode, and toString methods,and its registers are stored in a HashMap.
  *
- * @author ...
+ * @author ysusf 963
  */
 public final class Registers {
     private final Map<Register, Integer> registers = new HashMap<>();

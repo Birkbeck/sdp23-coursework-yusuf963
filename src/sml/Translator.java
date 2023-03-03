@@ -1,7 +1,5 @@
 package sml;
 
-import sml.instruction.AddInstruction;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -10,14 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static sml.Registers.Register;
-
 /**
- * This class ....
- * <p>
- * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
+ * The Translator class is responsible for reading and translating a SML program from a file.
+ * It takes a file name and an InstructionFactory object as input and generates a list of labels and a list of instructions.
+ * The getInstruction() method converts each line of the program into an instruction object with a given label.
+ * The getLabel() method extracts the label of each instruction.
+ * The readAndTranslate() method reads the SML program line by line and adds the instructions and their labels to the program.
  *
- * @author ...
+ * @author yusuf963
  */
 public final class Translator {
 
@@ -69,21 +67,14 @@ public final class Translator {
             return null;
 
         String opcode = scan();
-        if (opcode.equals(AddInstruction.OP_CODE)) {
-            String r = scan();
-            String s = scan();
-            return new AddInstruction(label, Register.valueOf(r), Register.valueOf(s));
 
-            // TODO: add code for all other types of instructions
+        ArrayList<String> wordDic = new ArrayList<>();
 
-            // TODO: Then, replace the switch by using the Reflection API
-
-            // TODO: Next, use dependency injection to allow this machine class
-            //       to work with different sets of opcodes (different CPUs)
-        } else {
-            System.out.println("Unknown instruction: " + opcode);
+        while (line.length() > 0) {
+            String word = scan();
+            wordDic.add(word);
         }
-        return null;
+        return instructionFactory.create(label, opcode, wordDic);
     }
 
 
