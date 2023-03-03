@@ -42,7 +42,7 @@ public final class Labels {
 	/**
 	 * we store an address incorrectly against a label, it can result in an error. More specifically,
 	 * this issue arises when we store an address for an index that exceeds the size of the program ArrayList of Instructions in the Machine class.
-	 *  If we attempt to jump to the index of this label and it is outside the size of program, the program will throw a NullPointerException.
+	 *  If we attempt to jump to the index of this label,and it is outside the size of program, the program will throw a NullPointerException.
 	*/
 		if(!labels.containsKey(lable)){
 			throw new RuntimeException("Lable of value "+ label+ "doesn't exist");
