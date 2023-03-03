@@ -29,10 +29,6 @@ public final class Translator {
         this.fileName = fileName;
         this.instructionFactory = instructionFactory;
     }
-    public Translator(String fileName, InstructionFactory instructionFactory) {
-        this.fileName =  fileName;
-        this.instructionFactory = instructionFactory;
-    }
 
     // translate the small program in the file into lab (the labels) and
     // prog (the program)
