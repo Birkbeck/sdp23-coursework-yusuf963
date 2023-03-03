@@ -1,21 +1,16 @@
 package sml.instruction;
 
-import sml.Instruction;
-import sml.Machine;
-import sml.RegisterName;
+import sml.*;
 
-// TODO: write a JavaDoc for the class
+import java.util.Objects;
 
-/**
- * @author
- */
-
-public class AddInstruction extends Instruction {
-    public static final String OP_CODE = "add";
+public class MulInstruction extends Instruction implements FlowHandling {
     private final RegisterName result;
     private final RegisterName source;
 
-    public AddInstruction(String label, RegisterName result, RegisterName source) {
+    public static final String OP_CODE = "mul";
+
+    public MulInstruction(String label, RegisterName result, RegisterName source) {
         super(label, OP_CODE);
         this.result = result;
         this.source = source;
@@ -23,9 +18,12 @@ public class AddInstruction extends Instruction {
 
     @Override
     public int execute(Machine m) {
-        int firstValue = m.getRegisters().get(result);
-        int secondValue = m.getRegisters().get(source);
-        m.getRegisters().set(result, firstValue + secondValue);
+        int value1 = m.getRegisters().get(result);
+        int value2 = m.getRegisters().get(source);
+        int res = value1 * value2;
+        UnderOverFlowHelper helper = (a, b, c) -> (int)(a * b) != ((long)a * (long)b);
+        handleOverUnderFlow(value1, value2, res, result.toString(), source.toString(), opcode, helper);
+        m.getRegisters().set(result, res);
         return NORMAL_PROGRAM_COUNTER_UPDATE;
     }
 
@@ -36,11 +34,9 @@ public class AddInstruction extends Instruction {
 
     @Override
     public boolean equals(Object o) {
-        boolean condition = getClass() != o.getClass() || o == null;
-
         if (this == o) return true;
-        if (condition) return false;
-        AddInstruction that = (AddInstruction) o;
+        if (o == null || getClass() != o.getClass()) return false;
+        MulInstruction that = (MulInstruction) o;
         if (this.label != null) {
             return label.equals(that.label) && result.equals(that.result) && source.equals(that.source);
         } else {

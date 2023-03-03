@@ -2,6 +2,11 @@ package sml;
 
 import sml.instruction.AddInstruction;
 import sml.instruction.DivInstruction;
+import sml.instruction.OutInstruction;
+import sml.instruction.MulInstruction;
+import sml.instruction.JnzInstruction;
+import sml.instruction.SubInstruction;
+import sml.instruction.MovInstruction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
