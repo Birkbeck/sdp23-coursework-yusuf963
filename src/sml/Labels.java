@@ -22,7 +22,7 @@ public final class Labels {
 	public void addLabel(String label, int address) {
 		Objects.requireNonNull(label);
 		// TODO: Add a check that there are no label duplicates.
-		if(label.containsKey(label)){
+		if(label.contains(label)){
 			throw new RuntimeException("the lable can not be added, as its already exist!");
 		}else{
 			labels.put(label, address);
