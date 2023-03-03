@@ -65,10 +65,10 @@ public abstract class Instruction {
   public abstract String toString();
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null || getClass() != obj.getClass()) return false;
-    Instruction that = (Instruction) obj;
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Instruction that = (Instruction) o;
     return Objects.equals(label, that.label) && opcode.equals(that.opcode);
   }
 
