@@ -1,14 +1,17 @@
 package sml.instruction;
-import java.util.Objects;
-import sml.RegisterName;
-import sml.Registers;
+
 import sml.Instruction;
 import sml.Machine;
+import sml.RegisterName;
+import sml.Registers;
+
+import java.util.Objects;
 
 /**
- Represents a mov instruction that sets the value of a specified register to a given value.
- Inherits from the Instruction class.
- @author yusuf963
+ * Represents a mov instruction that sets the value of a specified register to a given value.
+ * Inherits from the Instruction class.
+ *
+ * @author yusuf963
  */
 public class MovInstruction extends Instruction {
 
@@ -35,8 +38,8 @@ public class MovInstruction extends Instruction {
     }
 
     /**
-     Overrides the equals method to compare two MovInstructions for equality.
-     Two instructions are considered equal if they have the same label, register to set, and value.
+     * Overrides the equals method to compare two MovInstructions for equality.
+     * Two instructions are considered equal if they have the same label, register to set, and value.
      */
     @Override
     public boolean equals(Object o) {
@@ -51,8 +54,8 @@ public class MovInstruction extends Instruction {
     }
 
     /**
-     Overrides the hashCode method to generate a unique hash code for each MovInstruction object.
-     The hash code is based on the label, opcode, register to set, and value of the instruction.
+     * Overrides the hashCode method to generate a unique hash code for each MovInstruction object.
+     * The hash code is based on the label, opcode, register to set, and value of the instruction.
      */
     @Override
     public int hashCode() {
